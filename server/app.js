@@ -45,7 +45,12 @@ io.on("connection",async(socket)=>{  //listens .. to incomming connections..
 
 
     //sending of user datas to the client...
-    const history=await Messages.find({"receiver":userId})
+   const history = await Messages.find({
+  $or: [
+    {"receiver": userId},
+    {"sender": userId}
+  ]
+})
         .sort({currentDate:-1})   //ascending order..latest 5 picked up
         .limit(5)
         history.reverse();      //they are reversed now..
