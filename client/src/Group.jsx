@@ -89,7 +89,7 @@ function Group() {
     return userId;
   }, []);
   const socket = useMemo(
-    () => io("http://localhost:4000", { query: { userId } }),
+    () => io("https://web-socket-chat-app-1-backend-2.onrender.com/", { query: { userId } }),
     []
   );
   const [room, setRoom] = useState("");
