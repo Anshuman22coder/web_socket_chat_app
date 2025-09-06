@@ -33,12 +33,12 @@ io.on("connection", async (socket) => {
     console.log(`User ${userId} connected with socket ${socket.id}`);
 
     // Send chat history to the client
-    const history = await Messages.find({
-      $or: [
-        { "receiver": userId },
-        { "sender": userId }
-      ]
-    })
+    const history = await Messages.find(
+      
+        { "receiver": userId }
+      
+      
+    )
       .sort({ currentDate: -1 })
       .limit(5);
 
