@@ -84,7 +84,7 @@ function App() {
                   textShadow: "0 0 25px rgba(255,255,255,0.2)",
                 }}
               >
-                My Chat App
+                ChatSphere
               </Typography>
             </motion.div>
 
