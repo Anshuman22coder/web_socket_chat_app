@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+
 import Group from "./Group";
 import Individual from "./Individual";
 import SunIcon from "./assets/sun_icon.jpeg";
@@ -64,16 +66,27 @@ function App() {
               minHeight: "72px",
             }}
           >
-            <Typography
-              variant="h6"
-              sx={{
-                color: "white",
-                fontWeight: 800,
-                letterSpacing: "0.5px",
-              }}
+            <motion.div
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              ChatSphere
-            </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "white",
+                  fontWeight: 900,
+                  letterSpacing: "0.8px",
+                  background:
+                    "linear-gradient(90deg, #38bdf8, #8b5cf6, #ec4899)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  textShadow: "0 0 25px rgba(255,255,255,0.2)",
+                }}
+              >
+                My Chat App
+              </Typography>
+            </motion.div>
 
             <Stack direction="row" spacing={1.5} alignItems="center">
               <NavLink to="/" style={navStyle}>
@@ -145,6 +158,59 @@ function App() {
               overflow: "hidden",
             }}
           >
+            <Box
+              sx={{
+                pt: 4,
+                textAlign: "center",
+              }}
+            >
+              <Typography
+                variant="h4"
+                sx={{
+                  color: "rgba(255,255,255,0.85)",
+                  fontWeight: 700,
+                }}
+              >
+                Welcome to
+              </Typography>
+
+              <motion.div
+                animate={{
+                  y: [0, -6, 0],
+                  scale: [1, 1.04, 1],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <Typography
+                  variant="h2"
+                  sx={{
+                    fontWeight: 900,
+                    background:
+                      "linear-gradient(90deg,#38bdf8,#8b5cf6,#ec4899)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    mt: 1,
+                  }}
+                >
+                  ChatSphere
+                </Typography>
+              </motion.div>
+
+              <Typography
+                sx={{
+                  mt: 1,
+                  color: "rgba(255,255,255,0.7)",
+                  fontSize: "1rem",
+                }}
+              >
+                Connect • Chat • Collaborate
+              </Typography>
+            </Box>
+
             <Routes>
               <Route path="/" element={<Landing />} />
               <Route
